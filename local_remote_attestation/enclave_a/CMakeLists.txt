@@ -1,0 +1,26 @@
+# Copyright (c) Open Enclave SDK contributors.
+# Licensed under the MIT License.
+
+add_executable(enclave_a ecalls.cpp)
+
+if(WIN32)
+  maybe_build_using_clangw(enclave_a)
+endif()
+
+target_include_directories(enclave_a PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+
+target_link_libraries(enclave_a common)
+
+# Generate key A
+add_custom_command(OUTPUT private_a.pem public_a.pem
+  COMMAND openssl genrsa -out private_a.pem -3 3072
+  COMMAND openssl rsa -in private_a.pem -pubout -out public_a.pem)
+
+add_custom_target(public_key_a DEPENDS public_a.pem)
+
+# Sign enclave A with key A
+add_custom_command(OUTPUT enclave_a.signed
+  DEPENDS enclave_a enc.conf private_a.pem
+  COMMAND openenclave::oesign sign -e $<TARGET_FILE:enclave_a> -c ${CMAKE_CURRENT_SOURCE_DIR}/enc.conf -k private_a.pem)
+
+add_custom_target(enclave_a_signed ALL DEPENDS enclave_a.signed)
