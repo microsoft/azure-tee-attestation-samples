@@ -5,13 +5,9 @@ cmake_minimum_required(VERSION 3.16)
 
 project("Remote Attestation Sample" LANGUAGES C CXX)
 
-set(openenclave_curl_BUILD_DIR "${CMAKE_SOURCE_DIR}/openenclave-curl/build/openenclave-curl-prefix/src/openenclave-curl-build" CACHE PATH "Path to openenclave-curl build folder")
-
 find_package(OpenEnclave CONFIG REQUIRED)
 
 set(CMAKE_CXX_STANDARD 11)
-
-include(${openenclave_curl_BUILD_DIR}/targets.cmake)
 
 set(protobuf_MODULE_COMPATIBLE TRUE)
 find_package(Protobuf CONFIG REQUIRED)

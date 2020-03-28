@@ -17,13 +17,6 @@ Requirements:
 - virtualenv (or equivalent)
 - Python3
 
-To run the sample you have to get openenclave-curl library in the root project directory. Please git clone the repository and follow the build steps in the openenclave-curl/README.md:
-```bash
-git clone git@github.com:openenclave/openenclave-curl.git --recurse-submodules
-cd openenclave-curl
-git checkout c430d3e
-```
-
 For server:
 ```bash
 cd one_enclave
@@ -39,4 +32,5 @@ cd client
 ./setup.sh
 python3 client.py
 ```
-Note: make sure to have started the server before running the client.
+Note: setup.sh will `source activate` to make changes to environment.
+And make sure to have started the server before running the client.

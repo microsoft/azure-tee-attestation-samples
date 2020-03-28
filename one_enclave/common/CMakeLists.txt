@@ -26,6 +26,5 @@ target_link_libraries(common PUBLIC
   $<$<PLATFORM_ID:Linux>:-Wl,--require-defined=__oe_ecalls_table>
   openenclave::oeenclave
   openenclave::oelibcxx
-  openenclave-curl::libcurl
   )
 target_include_directories(common PUBLIC ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR})
