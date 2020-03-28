@@ -17,9 +17,10 @@ Requirements:
 - virtualenv (or equivalent)
 - Python3
 
-To run the sample you have to get openenclave-curl library in this directory first. Please git clone the repository and follow the build steps in the openenclave-curl/README.md:
+To run the sample you have to get openenclave-curl library in the root project directory. Please git clone the repository and follow the build steps in the openenclave-curl/README.md:
 ```bash
-git clone git@github.com:openenclave/openenclave-curl.git
+git clone git@github.com:openenclave/openenclave-curl.git --recurse-submodules
+cd openenclave-curl
 git checkout c430d3e
 ```
 

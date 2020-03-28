@@ -5,13 +5,9 @@ cmake_minimum_required(VERSION 3.16)
 
 project("Remote Attestation Sample" LANGUAGES C CXX)
 
-set(openenclave_curl_BUILD_DIR "${CMAKE_SOURCE_DIR}/openenclave-curl/build/openenclave-curl-prefix/src/openenclave-curl-build" CACHE PATH "Path to openenclave-curl build folder")
-
 find_package(OpenEnclave CONFIG REQUIRED)
 
 set(CMAKE_CXX_STANDARD 11)
-
-include(${openenclave_curl_BUILD_DIR}/targets.cmake)
 
 set(protobuf_MODULE_COMPATIBLE TRUE)
 find_package(Protobuf CONFIG REQUIRED)
@@ -37,13 +33,22 @@ else()
 endif()
 
 add_subdirectory(common)
+add_subdirectory(enclave_a)
 add_subdirectory(enclave_b)
 add_subdirectory(server)
+add_subdirectory(client)
 
-add_custom_target(sign ALL DEPENDS enclave_b_signed)
+add_custom_target(sign ALL DEPENDS enclave_a_signed enclave_b_signed)
 
 if ((NOT DEFINED ENV{OE_SIMULATION}) OR (NOT $ENV{OE_SIMULATION}))
   add_custom_target(run_server
     DEPENDS server_host sign
     COMMAND server_host ${CMAKE_BINARY_DIR}/enclave_b/enclave_b.signed)
 endif ()
+
+if ((NOT DEFINED ENV{OE_SIMULATION}) OR (NOT $ENV{OE_SIMULATION}))
+  add_custom_target(run_client
+    DEPENDS client_host sign
+    COMMAND client_host ${CMAKE_BINARY_DIR}/enclave_a/enclave_a.signed ${CMAKE_SOURCE_DIR}/data_to_encrypt)
+endif ()
+
