@@ -6,9 +6,10 @@ The server and client host processes are what drives the enclave app. They are r
 
 ## Build and run
 
-You must have CMake and protobuf installed.
-Then install gRPC following the guide here https://github.com/grpc/grpc/blob/v1.27.0/BUILDING.md
-Last tested version with this sample is 1.27
+You must have CMake and protobuf installed.\
+Then install gRPC following the guide here https://github.com/grpc/grpc/blob/v1.27.2/BUILDING.md\
+Last tested version with this sample is 1.27.2\
+Follow [AZURE_CONF_COMP_VM.md](../AZURE_CONF_COMP_VM.md) instructions to setup the environment successfully.
 
 ### CMake
 

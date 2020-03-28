@@ -6,9 +6,10 @@ The server host process is what drives the enclave app. It is responsible for ma
 
 ## Build and run
 
-You must have CMake and protobuf installed.
-Then install gRPC following the guide here https://github.com/grpc/grpc/blob/v1.27.0/BUILDING.md
-Last tested version with this sample is 1.27
+You must have CMake and protobuf installed.\
+Then install gRPC following the guide here https://github.com/grpc/grpc/blob/v1.27.2/BUILDING.md\
+Last tested version with this sample is 1.27.2\
+Follow [AZURE_CONF_COMP_VM.md](../AZURE_CONF_COMP_VM.md) instructions to setup the environment successfully.
 
 ### CMake
 
@@ -16,6 +17,7 @@ Requirements:
 - Requirements from [OpenEnclave](https://github.com/openenclave/openenclave/tree/0.8.2)
 - virtualenv (or equivalent)
 - Python3
+- `sudo apt-get install libcurl4-openssl-dev`
 
 For server:
 ```bash
@@ -32,5 +34,5 @@ cd client
 ./setup.sh
 python3 client.py
 ```
-Note: setup.sh will `source activate` to make changes to environment.
+Note: setup.sh will `source activate` to make changes to environment.\
 And make sure to have started the server before running the client.
