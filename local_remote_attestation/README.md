@@ -17,7 +17,7 @@ Requirements:
 
 Instructions:
 ```bash
-cd remote_client_server
+cd local_remote_attestation
 mkdir build && cd build
 cmake ..
 make run

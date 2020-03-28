@@ -13,8 +13,8 @@ $ git submodule update --init
 
 Install protobuf dependency:
 ```
-$ cd third_party/protobuf/
-$ mkdir -p "third_party/protobuf/cmake/build"
+$ mkdir -p third_party/protobuf/cmake/build
+$ cd third_party/protobuf/cmake/build
 $ cmake -Dprotobuf_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release ..
 $ make -j4 install
 ```
@@ -30,7 +30,7 @@ $ cmake \
   -DgRPC_SSL_PROVIDER=package \
   -DgRPC_PROTOBUF_PROVIDER=package \
   ../..
-$ make -j4 install
+$ [sudo] make -j4 install
 ```
 
-You can now build the project you want.
+You can now build the sample projects you want.

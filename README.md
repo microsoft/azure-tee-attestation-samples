@@ -80,7 +80,7 @@ This sample have the additional property:
 
 Unlike the previous samples, this example only have one enclave, which is initiated by an RPC server.
 
-One Enclave Attestation sample shows how to attest an enclave with Azure Attesation Service.
+One Enclave Attestation sample shows how to attest an enclave with Azure Attestation Service.
 
 The client is written in Python to show it does not use OpenEnclave at all.
 

@@ -39,7 +39,7 @@ add_subdirectory(server)
 add_custom_target(sign ALL DEPENDS enclave_b_signed)
 
 if ((NOT DEFINED ENV{OE_SIMULATION}) OR (NOT $ENV{OE_SIMULATION}))
-  add_custom_target(run_server
+  add_custom_target(run
     DEPENDS server_host sign
     COMMAND server_host ${CMAKE_BINARY_DIR}/enclave_b/enclave_b.signed)
 endif ()
