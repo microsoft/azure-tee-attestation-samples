@@ -16,12 +16,13 @@ Install protobuf dependency:
 $ mkdir -p third_party/protobuf/cmake/build
 $ cd third_party/protobuf/cmake/build
 $ cmake -Dprotobuf_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release ..
-$ make -j4 install
+$ [sudo] make -j4 install
 ```
 
 Install gRPC from source (reusing protobuf previous installation):
 ```
-$ cd ../../ && mkdir -p cmake/build
+$ cd GRPC_DIRECTORY
+$ mkdir -p cmake/build
 $ cd cmake/build
 $ cmake \
   -DCMAKE_BUILD_TYPE=Release \
